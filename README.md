@@ -2,8 +2,19 @@
 Use POSTMAN to try the following endpoints:
 
 
+## Get list of Animals
 
 ### Request
+
+    `GET /animals/all`
+
+    `http://localhost:8080/animals/all`
+
+
+
+## Get Animal by Id
+### Request
+
 
     `GET /animals/{animalId}`
 
@@ -16,11 +27,16 @@ Use POSTMAN to try the following endpoints:
     `POST /animals/new`
     
     `http://localhost:8080/animals/new` 
-    Example data: '{ "name": "Stegosaurus",
-  "scientificName": "Stegosaurus armatus",
-  "species": "Dinosaur",
-  "habitat": "Woodlands",
-  "description": "A big dinosaur with large plates on it's back."}'
+    Example data: '{ "name": "Stegosaurus","scientificName": "Stegosaurus armatus","species": "Dinosaur","habitat": "Woodlands","description": "A big dinosaur with large plates on it's back."}'
+
+## Get Animals by name
+
+### Request
+
+    `GET /animals/name_search?name={name}`
+
+    `http://localhost:8080/animals/name_search?name={name}`
+    
 
 ## Get Animals by species
 
@@ -30,13 +46,7 @@ Use POSTMAN to try the following endpoints:
 
     `http://localhost:8080/animals/search_species?species={name of species}`
 
-## Get Animals by name
 
-### Request
-
-    `GET /animals/name_search?name={name}`
-
-    `http://localhost:8080/animals/name_search?name={name}`
 
 
 ## Update an existing Animal
