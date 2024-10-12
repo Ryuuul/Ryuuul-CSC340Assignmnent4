@@ -26,11 +26,18 @@ public class AnimalService {
         return animalRepository.save(animal);
     }
 
-    //update existing animal
+    /**
+     * Update an existing Animal.
+     *
+     * @param animalId the unique Animal Id.
+     * @param animal   the new Animal details.
+     */ 
     public Animal updateAnimal(int animalId, Animal animal) {
         Animal existing = getAnimalById(animalId);
         existing.setName(animal.getName());
         existing.setScientificName(animal.getScientificName());
+        existing.setSpecies(animal.getSpecies());
+        existing.setHabitat(animal.getHabitat());
         existing.setDescription(animal.getDescription());
 
 

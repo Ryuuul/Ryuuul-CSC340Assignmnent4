@@ -13,7 +13,7 @@ public interface AnimalRepository  extends JpaRepository<Animal, Integer>{
     List<Animal> findBySpecies(String species);
 
 
-    @Query(value = "SELECT * FROM animals WHERE animals.name LIKE %:keyword%", nativeQuery = true)
+    @Query(value = "SELECT * FROM animals a WHERE a.name LIKE %:keyword%", nativeQuery = true)
     List<Animal> findByNameContaining(@Param("keyword") String keyword);
 
 
