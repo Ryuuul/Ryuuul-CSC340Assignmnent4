@@ -14,7 +14,7 @@ public interface AnimalRepository  extends JpaRepository<Animal, Integer>{
 
 
     @Query(value = "SELECT * FROM animals a WHERE a.name LIKE %:keyword%", nativeQuery = true)
-    List<Animal> findByNameContaining(@Param("keyword") String keyword);
+    List<Animal> getAnimalsByName(@Param("keyword") String keyword);
 
 
 

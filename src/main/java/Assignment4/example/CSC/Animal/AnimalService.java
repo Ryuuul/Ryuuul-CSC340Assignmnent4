@@ -56,7 +56,7 @@ public class AnimalService {
 
     //find animals whose name contains given string
     public List<Animal> searchByName(String keyWord) {
-        return animalRepository.findByNameContaining(keyWord);
+        return animalRepository.getAnimalsByName(keyWord);
     }
 
 

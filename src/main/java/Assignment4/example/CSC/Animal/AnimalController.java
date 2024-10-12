@@ -37,7 +37,7 @@ public class AnimalController {
     }
 
 
-    //http://localhost:8080/animals/search_name?name=
+    //http://localhost:8080/animals/name_search?name=
     @GetMapping("/name_search")
     public List<Animal> searchByName(@RequestParam(name = "name", defaultValue = "") String keyword) {
         return service.searchByName(keyword);
