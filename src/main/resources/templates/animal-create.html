@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Animal</title>
+    <link rel="stylesheet" href="../static/styles/styles.css"> 
+</head>
+<body>
+    <h1>Create New Animal</h1>
+    <form action="/animals/new" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="scientificName">Scientific Name:</label>
+        <input type="text" id="scientificName" name="scientificName" required><br>
+
+        <label for="species">Species:</label>
+        <input type="text" id="species" name="species" required><br>
+
+        <label for="habitat">Habitat:</label>
+        <input type="text" id="habitat" name="habitat" required><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"></textarea><br>
+
+        <input type="submit" value="Create Animal">
+    </form>
+    <a href="/animals/all">Cancel</a>
+</body>
+</html>

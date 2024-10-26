@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Animal List</title>
+    <link rel="stylesheet" href="../static/styles/styles.css"> 
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        thead {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tbody tr:hover {
+            background-color: #d6d4d4;
+        }
+
+        a {
+            color: #007bff;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        textarea {
+            width: 100%;                   
+            padding: 10px;                
+            border: 1px solid #ccc;       
+            border-radius: 4px;           
+            font-size: 16px;              
+            box-sizing: border-box;        
+            transition: border-color 0.3s; 
+        }
+
+        th, td {
+        text-align: center;
+        border: 1px solid #ccc; 
+}
+    </style>
+</head>
+<body>
+
+    <div class="searchbar">
+        <input id="searchnamequery" type="text" placeholder="Search By name">
+        <button id="searchnamesubmit" type="submit">
+            <img src="../static/images/search.png" width="24px" height="24px">
+        </button>
+    </div>
+
+    <h1>Animal List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Scientific Name</th>
+                <th>Species</th>
+                <th>Habitat</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="animal : ${animalList}">
+                <td th:text="${animal.animalId}"></td>
+                <td th:text="${animal.name}"></td>
+                <td th:text="${animal.scientificName}"></td>
+                <td th:text="${animal.species}"></td>
+                <td th:text="${animal.habitat}"></td>
+                <td th:text="${animal.description}"></td>
+                <td><a th:href="@{/animals/{animalId}(animalId=${animal.animalId})}">View Details</a>
+                <a th:href="@{/animals/delete/{animalId}(animalId=${animal.animalId})}" style="margin-left: 10px;">Delete</a>
+                <a th:href="@{/animals/update/{animalId}(animalId=${animal.animalId})}" style="margin-left: 10px;">Update</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/animals/new}">Create New Animal</a>
+</body>
+</html>

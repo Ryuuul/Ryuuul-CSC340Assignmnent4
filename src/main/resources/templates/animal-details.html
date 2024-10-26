@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Animal Details</title>
+    <link rel="stylesheet" href="../static/styles.css"> 
+</head>
+<body>
+    <h1>Animal Details</h1>
+    <h2 th:text="${animal.name}"></h2>
+    <p><strong>Id:</strong> <span th:text="${animal.animalId}"></span></p>
+    <p><strong>Scientific Name:</strong> <span th:text="${animal.scientificName}"></span></p>
+    <p><strong>Species:</strong> <span th:text="${animal.species}"></span></p>
+    <p><strong>Habitat:</strong> <span th:text="${animal.habitat}"></span></p>
+    <p><strong>Description:</strong> <span th:text="${animal.description}"></span></p>
+    <a th:href="@{/animals/update/{animalId}(animalId=${animal.animalId})}">Update Animal</a>
+    <a href="/animals/all">Back to List</a>
+    <a data-th-href="@{/animals/delete/{animalId}(animalId=${animal.animalId})}">Delete</a>
+
+</body>
+</html>
