@@ -58,13 +58,16 @@
 <body>
 
     <div class="searchbar">
-        <input id="searchnamequery" type="text" placeholder="Search By name">
-        <button id="searchnamesubmit" type="submit">
-            <img src="../static/images/search.png" width="24px" height="24px">
-        </button>
+        <form action="/animals" method="get">
+            <input type="text" name="keyword" placeholder="Search By Name;">
+            <button id="searchnamesubmit" type="submit">
+                <img src="../static/images/search.png" width="24px" height="24px">
+            </button>
+        </form>
+        
     </div>
 
-    <h1>Animal List</h1>
+    <h1 data-th-text="${title}"></h1>
     <table>
         <thead>
             <tr>

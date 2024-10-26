@@ -1,9 +1,9 @@
 package Assignment4.example.CSC.Animal;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class AnimalService {
@@ -55,8 +55,11 @@ public class AnimalService {
     }
 
     //find animals whose name contains given string
-    public List<Animal> searchByName(String keyWord) {
-        return animalRepository.getAnimalsByName(keyWord);
+    public List<Animal> searchByName(String keyword) {
+        if (keyword == null || keyword.isEmpty()) {
+            return animalRepository.findAll();
+        }
+        return animalRepository.getAnimalsByName(keyword);
     }
 
 

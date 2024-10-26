@@ -29,6 +29,7 @@ public class AnimalController {
     public String getAllAnimals(Model model) {
         List<Animal> animals = service.getAllAnimals();
         model.addAttribute("animalList", animals); 
+        model.addAttribute("title", "All Animals");
         return "animal-list"; 
     }
 
@@ -56,11 +57,12 @@ public class AnimalController {
     }
 
 
-    //http://localhost:8080/animals/name_search?name=
-    @GetMapping("/name_search")
-    public String searchByName(@RequestParam(name = "name", defaultValue = "") String keyword, Model model) {
-        List<Animal> animals = service.searchByName(keyword);
+    //http://localhost:8080/animals/?keyword=
+    @GetMapping("")
+    public String searchByName(@RequestParam(name = "name", defaultValue = "Bird") String keyword, Model model) {
+        List<Animal> animals = service.searchByName(keyword.trim());
         model.addAttribute("animalList", animals); 
+        model.addAttribute("title", "Search Results");
         return "animal-list"; 
     }
 
